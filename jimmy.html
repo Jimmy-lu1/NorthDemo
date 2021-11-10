@@ -9,7 +9,17 @@
     <h1> The Progress of NSW Rest Areas Group Project</h1>
  <p> This group presentation is going to be fine in the end.</p>
 
-  <p>The code for neo4j project will be from Northwind Group Project on Github website.</p>
+  <p>The Code for neo4j project will be from Northwind Group Project on Github website.</p>
+
+      <pre>
+      LOAD CSV WITH HEADERS FROM 'file:///restarea.csv' AS row
+      MERGE (ra:restarea {RestAreaID: row.RestAreaID})
+      ON CREATE SET ra.Suburb = row.Suburb,
+      ra.Category = row.Category,
+      ra.RestAreaName=row.RestAreaName,
+      ra.ResponsibleAuthority=row.ResponsibleAuthority,
+      ra.VehicleType=row.VehicleType;
+      </pre>
 
       <pre>
       LOAD CSV WITH HEADERS FROM 'file:///restarea.csv' AS row
